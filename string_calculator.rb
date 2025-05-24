@@ -2,7 +2,6 @@
 require_relative 'negative_number_error'
 class StringCalculator
   def add(string)
-    return if string.nil?
     return 0 if string.empty?
 
     # following step is required to handle the case if user provided the single quote string

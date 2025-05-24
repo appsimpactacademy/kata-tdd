@@ -6,6 +6,11 @@ RSpec.describe StringCalculator do
     before(:each) do 
       @obj = StringCalculator.new
     end
+    
+    it 'returns error when string is not given' do
+      expect { @obj.add }.to raise_error(ArgumentError, "wrong number of arguments (given 0, expected 1)")
+    end
+
     it 'returns 0 when string is blank' do
       result = @obj.add('')
       expect(result).to eq(0)
