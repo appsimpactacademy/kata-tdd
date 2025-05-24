@@ -5,7 +5,9 @@ class StringCalculator
     return if string.nil?
     return 0 if string.empty?
 
-    numbers = string.split(',')
+    # following step is required to handle the case if user provided the single quote string
+    string = string.gsub('\\n', "\n")
+    numbers = string.split(/,|\n/)
     numbers = numbers.reject { |value| value.strip.empty? }
     return numbers[0].to_i if numbers.size == 1
 
