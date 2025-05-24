@@ -41,5 +41,11 @@ RSpec.describe StringCalculator do
       obj = StringCalculator.new
       expect { obj.add("-1,-4,2,-4,5,-1") }.to raise_error(NegativeNumberError, "negative numbers not allowed -1,-4")
     end
+
+    it 'return the sum of numbers when string contains numbers separated by new lines instead of comma' do
+      obj = StringCalculator.new
+      result = obj.add('1\n2')
+      expect(result).to eq(3)
+    end
   end
 end
