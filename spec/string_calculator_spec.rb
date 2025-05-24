@@ -13,5 +13,11 @@ RSpec.describe StringCalculator do
       result = obj.add('1')
       expect(result).to eq(1)
     end
+
+    it 'returns the number as integer when string contains only one number but with one or more comma operator' do 
+      obj = StringCalculator.new
+      result = obj.add('1, , ,')
+      expect(result).to eq(1)
+    end
   end
 end
