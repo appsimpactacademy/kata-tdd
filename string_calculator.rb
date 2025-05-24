@@ -12,9 +12,9 @@ class StringCalculator
 
     numbers = string.split(',')
     numbers = numbers.reject { |value| value.strip.empty? }
-    return numbers[0].to_i if numbers.size == 1
-
     numbers = numbers.map(&:to_i)
+    numbers = numbers.map {|num| num > 1000 ? 0 : num }
+    return numbers[0] if numbers.size == 1
 
     # filter out the unique negative number
     negatives = numbers.select { |n| n < 0 }.uniq
