@@ -7,5 +7,8 @@ class StringCalculator
     numbers = string.split(',')
     numbers = numbers.reject { |value| value.strip.empty? }
     return numbers[0].to_i if numbers.size == 1
+
+    numbers = numbers.map(&:to_i)
+    numbers.sum
   end
 end
