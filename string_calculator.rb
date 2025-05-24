@@ -5,6 +5,7 @@ class StringCalculator
     return 0 if string.empty?
 
     numbers = string.split(',')
+    numbers = numbers.reject { |value| value.strip.empty? }
     return numbers[0].to_i if numbers.size == 1
   end
 end
