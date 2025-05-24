@@ -16,8 +16,14 @@ RSpec.describe StringCalculator do
 
     it 'returns the number as integer when string contains only one number but with one or more comma operator' do 
       obj = StringCalculator.new
-      result = obj.add('1, , ,')
+      result = obj.add('1, , ,   ,')
       expect(result).to eq(1)
+    end
+
+    it 'returns the sum of all numbers present in the string and separated by comma' do
+      obj = StringCalculator.new
+      result = obj.add('10,20')
+      expect(result).to eq(30)
     end
   end
 end
