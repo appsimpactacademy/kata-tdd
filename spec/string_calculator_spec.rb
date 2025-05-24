@@ -53,5 +53,17 @@ RSpec.describe StringCalculator do
       result = obj.add("1\n2")
       expect(result).to eq(3)
     end
+
+    it 'return the sum of numbers when string contains numbers separated by new lines and comma and string is a single quoted string' do
+      obj = StringCalculator.new
+      result = obj.add('1\n2,3')
+      expect(result).to eq(6)
+    end
+
+    it 'return the sum of numbers when string contains numbers separated by new lines and comma and string is a single quoted string' do
+      obj = StringCalculator.new
+      result = obj.add("1\n2,3")
+      expect(result).to eq(6)
+    end
   end
 end
