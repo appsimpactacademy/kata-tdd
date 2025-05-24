@@ -10,9 +10,13 @@ class StringCalculator
     # remove all non digits from string
     string = string.gsub(/[^0-9\-]+/, ',')
 
+    # split numbers separated by commas 
     numbers = string.split(',')
+    # reject empty substrings if any
     numbers = numbers.reject { |value| value.strip.empty? }
+    # convert all values in the integer
     numbers = numbers.map(&:to_i)
+    # check for numbers, if greater than 1000, need to ignore them in calculation so converting to 0
     numbers = numbers.map {|num| num > 1000 ? 0 : num }
     return numbers[0] if numbers.size == 1
 
