@@ -7,7 +7,10 @@ class StringCalculator
 
     # following step is required to handle the case if user provided the single quote string
     string = string.gsub('\\n', "\n")
-    numbers = string.split(/,|\n/)
+    # remove all non digits from string
+    string = string.gsub(/[^0-9\-]+/, ',')
+
+    numbers = string.split(',')
     numbers = numbers.reject { |value| value.strip.empty? }
     return numbers[0].to_i if numbers.size == 1
 
