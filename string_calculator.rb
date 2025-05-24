@@ -10,8 +10,8 @@ class StringCalculator
 
     numbers = numbers.map(&:to_i)
 
-    # filter out the negative number
-    negatives = numbers.select { |n| n < 0 }
+    # filter out the unique negative number
+    negatives = numbers.select { |n| n < 0 }.uniq
 
     # if any negative number present in the given string raise an exception
     unless negatives.empty?
