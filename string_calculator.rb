@@ -1,4 +1,5 @@
 # this class will handle the calculation for the given string
+require_relative 'negative_number_error'
 class StringCalculator
   def add(string)
     return if string.nil?
@@ -14,9 +15,8 @@ class StringCalculator
     negatives = numbers.select { |n| n < 0 }.uniq
 
     # if any negative number present in the given string raise an exception
-    unless negatives.empty?
-      raise ArgumentError, "negative numbers not allowed #{negatives.join(',')}"
-    end
+    raise NegativeNumberError.new(negatives) unless negatives.empty? unless negatives.empty?
+    
     numbers.sum
   end
 end

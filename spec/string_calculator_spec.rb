@@ -1,4 +1,5 @@
 require_relative '../string_calculator'
+require_relative '../negative_number_error'
 
 RSpec.describe StringCalculator do
   context 'add numbers in the string' do
@@ -28,17 +29,17 @@ RSpec.describe StringCalculator do
 
     it 'raises an error for one negative number' do
       obj = StringCalculator.new
-      expect { obj.add("1,-2,3") }.to raise_error(ArgumentError, "negative numbers not allowed -2")
+      expect { obj.add("1,-2,3") }.to raise_error(NegativeNumberError, "negative numbers not allowed -2")
     end
 
     it 'raises an error for multiple negative numbers' do
       obj = StringCalculator.new
-      expect { obj.add("-1,-4,2") }.to raise_error(ArgumentError, "negative numbers not allowed -1,-4")
+      expect { obj.add("-1,-4,2") }.to raise_error(NegativeNumberError, "negative numbers not allowed -1,-4")
     end
 
     it 'raises an error for multiple negative numbers but only mention the unique negatives' do
       obj = StringCalculator.new
-      expect { obj.add("-1,-4,2,-4,5,-1") }.to raise_error(ArgumentError, "negative numbers not allowed -1,-4")
+      expect { obj.add("-1,-4,2,-4,5,-1") }.to raise_error(NegativeNumberError, "negative numbers not allowed -1,-4")
     end
   end
 end
