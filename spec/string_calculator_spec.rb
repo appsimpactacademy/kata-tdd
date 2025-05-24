@@ -82,5 +82,11 @@ RSpec.describe StringCalculator do
       result = obj.add('1,2,1001')
       expect(result).to eq(3)
     end
+
+    it 'should return 0 if string contains only one number and it is greater than 1000' do
+      obj = StringCalculator.new
+      result = obj.add('1001,')
+      expect(result).to eq(0)
+    end
   end
 end
